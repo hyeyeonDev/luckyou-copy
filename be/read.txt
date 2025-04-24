@@ -1,0 +1,17 @@
+1. Next.js 프론트엔드에서 Supabase 로그인:
+- 사용자가 로그인하면 Supabase에서 JWT를 발급받습니다.
+- 이 JWT는 클라이언트에서 localStorage 또는 cookies 등에 저장됩니다.
+
+2. Spring Boot API와의 연동:
+- Next.js에서 API 호출을 할 때, Supabase에서 받은 JWT를 Authorization 헤더에 Bearer <JWT> 형식으로 전달합니다.
+
+3. Spring Boot API에서 JWT 검증:
+- Spring Boot는 받은 JWT를 검증하여, 유효한 사용자만 API에 접근할 수 있게 합니다. 이때 JWT 검증을 위해 spring-boot-starter-oauth2-resource-server나 jjwt 등의 라이브러리를 사용할 수 있습니다.
+
+4. JWT 검증 방법:
+- JWT 검증을 위한 라이브러리: Spring Security와 JWT 관련 라이브러리(spring-security-oauth2-jose, jjwt 등)를 사용하여 JWT의 유효성을 검사하고, JWT 내의 사용자 정보를 추출하여 인증을 처리할 수 있습니다.
+
+
+* 로그인 여부에 따라 페이지 이동 제한
+- 로그인 직후에 현재 로그인 상태 받아오지 못하는 문제
+  middlerware 처리시 로그인 상태에 따른 페이지 처리 x
